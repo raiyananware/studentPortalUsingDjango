@@ -1116,7 +1116,7 @@ def uploadData(request):
     qualificationAvailable.objects.create(qualificationName="10th Board")
     
 
-    User.objects.create(
+    userData=User.objects.create(
         password="admin",
         first_name="admin",
         last_name="admin",
@@ -1126,6 +1126,8 @@ def uploadData(request):
         is_active=True,
         is_superuser=True,
     )
+    userData.set_password("admin")
+    userData.save()
 
     return HttpResponse("Data Added Successfully")
 
