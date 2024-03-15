@@ -1,5 +1,7 @@
 from django.http import HttpResponse
-from portalApp.models import topic,subTopic, course, lecture,jobLocationAvailable,qualificationAvailable
+from portalApp.models import topic,subTopic, course, lecture,jobLocationAvailable,qualificationAvailable, extendedUser
+from django.contrib.auth.models import User
+from django.db.models import Q
 
 def uploadData(request):
 
@@ -1113,6 +1115,18 @@ def uploadData(request):
     qualificationAvailable.objects.create(qualificationName="12th Board")
     qualificationAvailable.objects.create(qualificationName="10th Board")
     
+
+    User.objects.create(
+        password="admin",
+        first_name="admin",
+        last_name="admin",
+        username="admin",
+        email="admin",
+        is_staff=False,
+        is_active=True,
+        is_superuser=True,
+    )
+
     return HttpResponse("Data Added Successfully")
 
 
