@@ -236,9 +236,9 @@ def markLectureCompleted(request, topicId, subTopicId, lectureId):
     getVerificationOfUser = functions.verifyUser(request)
     if getVerificationOfUser:
         if request.user.is_staff:
-            data = functions.markClassLectureCompleted(request, topicId, subTopicId, lectureId)
+            data = markClassLectureCompleted(request, topicId, subTopicId, lectureId)
         else:
-            data = functions.markSelfLectureCompleted(request, topicId, subTopicId, lectureId)
+            data = markSelfLectureCompleted(request, topicId, subTopicId, lectureId)
         return data
     else:
         return functions.redirect("/logout/")
