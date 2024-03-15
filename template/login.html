@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <title>Login</title>
+</head>
+
+<body>
+    <section class="h-100 gradient-form completePage">
+        <div class="container py-5 h-100">
+            <div class="row d-flex mainDiv justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="card rounded-3 text-black completeForm">
+                        <div class="row g-0">
+                            <div class="col-lg-6 formControl" id="div1">
+                                <div class="card-body p-md-5 mx-md-4">
+                                    <div class="text-center">
+                                        <!-- <img src="{% static 'images/logo.svg' %}" style="width: 185px;"
+                                            alt="logo" class="logo mb-5"> -->
+                                        <img src="{% static 'images/portalLogo.jpg' %}" alt="Logo" height="75px">
+                                        <!-- <h5 class="mt-1 mb-5 pb-1">Decode your Dreams</h5> -->
+                                    </div>
+
+                                    <form action="/login/" method="POST">
+                                        {% csrf_token %}
+                                        {% if errorMsg %}
+                                <div class="alert alert-danger">
+                                    {{errorMsg}}
+                                </div>
+                                {% endif %}
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label">Username</label>
+                                            <input type="text" id="userName" name="userName" class="form-control"
+                                                placeholder="Phone number or email address" />
+                                            {% if userErrorMsg %}
+                                            <p class="errorMsg">{{ userErrorMsg }}</p>
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label">Password</label>
+                                            <input type="password" id="password" name="password" class="form-control" />
+                                            {% if passwordErrorMsg %}
+                                            <p class="errorMsg">{{ passwordErrorMsg }}</p>
+                                            {% endif %}
+                                            <br>
+                                            <!-- <a class="text-muted" href="#!">Forgot password?</a> -->
+                                        </div>
+
+                                        <div class="text-center pt-1">
+                                            <button class="btn btn-light btn-block fa-lg gradient-custom-2 mb-3"
+                                                type="submit">Log in</button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                    <h4 class="mb-4 txtControl">Welcome Back</h4>
+                                    <p class="small mb-0 txtControl">Let's continue from where you left.</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="footer text-center student-footer">
+                Copyright  © Itvedant Education Pvt. Ltd. 2012 - 2024 |
+                    <a class="quick_links loginBtn" href="https://www.itvedant.com/policy/terms-conditions" target="_blank" style="text-decoration: none;">Terms</a> |
+                    <a class="quick_links loginBtn" href="https://www.itvedant.com/policy/placement-policy" target="_blank" style="text-decoration: none;">Placement</a> |
+                    <a class="quick_links loginBtn" href="https://www.itvedant.com/policy/privacy-policy" target="_blank" style="text-decoration: none;">Privacy</a> |
+                    <a class="quick_links loginBtn" href="https://www.itvedant.com/policy/refund-policy" target="_blank" style="text-decoration: none;">Refund</a> |
+                    <a class="quick_links loginBtn" href="https://www.itvedant.com/policy/refer-and-earn-policy" target="_blank" style="text-decoration: none;">Referral Policy</a>
+                </div>
+        </div> -->
+
+    </section>
+
+</body>
+
+</html>

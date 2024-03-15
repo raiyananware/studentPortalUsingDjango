@@ -1,0 +1,122 @@
+.completePage {
+  /* background-image: url("https://images.rawpixel.com/image_600/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAxL3Jhd3BpeGVsX29mZmljZV80Ml9hX2JhY2tncm91bmRfaWxsdXN0cmF0aW9uX29mX2FfeWVsbG93X2dyZWVuX18xZWY0MDY1ZS02MDcwLTQ5MDktYWFkNi04ZTVmMjE0Y2ZkM2NfMS5qcGc.jpg"); */
+  /* background-color: grey; */
+  background: linear-gradient(to right, #686868, #b9d719);
+  /* background-color: rgba(0, 0, 0, 0.438); */
+  /* color: white; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.fly-1 {
+  position: absolute;
+  top: 15%;
+  right: 17%;
+  width: 17rem;
+  filter: blur(1px);
+}
+
+.fly-2 {
+  position: absolute;
+  bottom: 0px;
+  right: 30%;
+  width: 13rem;
+}
+
+.fly-3 {
+  position: absolute;
+  top: 35%;
+  left: 30%;
+  width: 17rem;
+  transform: rotate(318deg);
+}
+
+.fontSize {
+  font-size: 13px;
+  list-style: none;
+}
+
+.cardBody {
+  width: 220px;
+  height: 120px;
+  border: solid 1px rgba(0, 0, 0, 0.7);
+}
+
+.assignmentCard {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.forAnchorTag {
+  color: black;
+  text-decoration: none;
+}
+
+.lectureDone {
+  background-color: lightgreen;
+}
+
+.fixedSidebar {
+  position: fixed;
+  display: flex;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 250px;
+  padding: 0;
+  border-right: solid 1px rgba(0, 0, 0, 0.4);
+  color: white;
+  height: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.masterNav {
+  position: relative;
+}
+
+.navbarCustom {
+  height: max-content;
+}
+
+.iconDiv {
+  height: 35px;
+  border-radius: 15px;
+}
+
+.iconBorder {
+  padding-left: 5px;
+  padding-right: 5px;
+  border: solid 1px;
+  border-radius: 50px;
+}
+
+.disabledAnchorWithoutSelfDone {
+  color: white;
+  text-decoration: none;
+}
+
+.disabledAnchorWithSelfDone {
+  color: black;
+  text-decoration: none;
+}
+
+.bodyStyle {
+  color: white;
+  background-color: #474747;
+}
+
+.tableStyle {
+  width: 100%;
+}
+
+.tableStyle > :not(caption) > * > * {
+  padding: 0.5rem 0.5rem;
+  border-bottom-width: var(--bs-border-width);
+}

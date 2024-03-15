@@ -1,0 +1,105 @@
+.loginForm {
+  width: max-content;
+  border-radius: 10px;
+}
+
+.loginBtn {
+  color: black;
+}
+
+.txtControl {
+  color: #686868;
+}
+
+
+/* .completePage{
+  background-color: #eee;
+  background: -webkit-linear-gradient(to right, #686868);
+  background-image: url("https://images.rawpixel.com/image_600/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAxL3Jhd3BpeGVsX29mZmljZV80Ml9hX2JhY2tncm91bmRfaWxsdXN0cmF0aW9uX29mX2FfeWVsbG93X2dyZWVuX18xZWY0MDY1ZS02MDcwLTQ5MDktYWFkNi04ZTVmMjE0Y2ZkM2NfMS5qcGc.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+} */
+
+.completePage{
+  background-image: url("https://images.rawpixel.com/image_600/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAxL3Jhd3BpeGVsX29mZmljZV80Ml9hX2JhY2tncm91bmRfaWxsdXN0cmF0aW9uX29mX2FfeWVsbG93X2dyZWVuX18xZWY0MDY1ZS02MDcwLTQ5MDktYWFkNi04ZTVmMjE0Y2ZkM2NfMS5qcGc.jpg");
+  background: linear-gradient(to right,#b9d719,#686868);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.fly-1 {
+  position: absolute;
+  top: -15%;
+  right: -17%;
+  width: 17rem;
+  filter: blur(1px);
+}
+
+.fly-2 {
+  position: absolute;
+  bottom: 0px;
+  right: -30%;
+  width: 13rem;
+}
+
+.fly-3 {
+  position: absolute;
+  top: 35%;
+  left: -30%;
+  width: 17rem;
+  transform: rotate(318deg);
+}
+
+.completeForm{
+  background-color: #68686800;
+}
+
+.formControl {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #686868;
+}
+
+.logo {
+  background-color: #eeeeee;
+  width: max-content;
+  align-self: center;
+}
+
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  /* background: #fccb90; */
+  background: #b9d719;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #b9d719);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* background: linear-gradient(to right, #686868); */
+}
+
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
+}
+
+
+.errorMsg{
+  color: red;
+}

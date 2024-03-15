@@ -1,0 +1,331 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'js/profile.js' %}"></script>
+    <script src="{% static 'js/postCall.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <title>Profile</title>
+    <script>
+        var dictionaryData = '{{allData}}'
+        var CSRFToken = '{{csrf_token}}'
+        var userId= '{{user.id}}'
+    </script>
+</head>
+
+<body class="completePage">
+    <div class="row mainPage">
+
+        <div class="col-md-2  masterNav">
+            {% include 'sideNav/sideNav.html' %}
+        </div>
+
+        <div class="col-md-10 mt-5 mainData">
+
+            <form action="/profile/" method="POST" id="profile">
+                {% csrf_token %}
+
+                <div class="row  profilePageRows">
+
+                    <div class="col-md-6 profile">
+                        <div class="card shadow bodyStyle profilePageCards rounded-4">
+
+                            <div class="card-body">
+
+                                <div class="row border-bottom border-white">
+                                    <h5 class="card-title">Personal Details</h5>
+                                </div>
+
+                                <div class="row mt-2 nameDetails">
+
+                                    <div class="col-2 imageSection">
+                                        <img src="{% static 'images/profilePictue.jpg' %}"
+                                            class="img-fluid firstImage rounded-circle" alt="profile Picture">
+                                        <i class="bi bi-camera ps-1 pe-1 secondImage border rounded-circle border-black"
+                                            style="background-color: grey ;"></i>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="ps-3 boxSahdow border border-white border-opacity-50 rounded-4">
+                                            <span class="subTopics">First Name</span>:- <br>
+                                            <input type="text" id="firstName" name="firstName"
+                                                class="ms-2 form-control-plaintext width-95 text-light"
+                                                placeholder="First Name" value="{{allData.personalDetails.firstName}}"
+                                                readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3 ms-3">
+                                        <div class="ps-3 boxSahdow border border-white border-opacity-50 rounded-4">
+                                            <span class="subTopics">Middle Name</span>:- <br>
+                                            <input type="text" id="middleName" name="middleName"
+                                                class=" ms-2 form-control-plaintext width-95 text-light"
+                                                placeholder="Middle Name" value="{{allData.personalDetails.middleName}}"
+                                                readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3 ms-3">
+                                        <div class="ps-3 boxSahdow border border-white border-opacity-50 rounded-4">
+                                            <span class="subTopics">Last Name</span>:- <br>
+                                            <input type="text" id="lastName" name="lastName"
+                                                class=" ms-2 form-control-plaintext width-95 text-light"
+                                                placeholder="Last Name" value="{{allData.personalDetails.lastName}}"
+                                                readonly>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mt-3 dobAndGender">
+                                    <div class="col">
+                                        <div class="ps-3 boxSahdow border border-white border-opacity-50 rounded-4">
+                                            <span class="subTopics">Date of Birth</span>:- <br>
+                                            <input type="date" id="dob" class="ms-2 mb-2 dob" name="dob"
+                                                value="{{allData.personalDetails.dob}}" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="ps-3 boxSahdow border border-white border-opacity-50 rounded-4">
+                                            <span class="subTopics">Gender</span>:- <br>
+                                            <select name="gender" class=" ms-2 dropDown dob"
+                                                value="{{allData.personalDetails.gender}}" id="gender" disabled>
+                                                <option class="dropDownOptions" value="select">---Select---</option>
+                                                <option class="dropDownOptions" value="Male">Male</option>
+                                                <option class="dropDownOptions" value="Female">Female</option>
+                                                <option class="dropDownOptions" value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class=" row mt-3 emailAndNumber">
+                                    <div class="col">
+                                        <div class="ps-3 boxSahdow border border-white border-opacity-50 rounded-4">
+                                            <span class="subTopics">Email</span>:- <br>
+                                            <input type="email" class="ms-2 form-control-plaintext width-95 text-light"
+                                                id="email" placeholder="Mobile Number"
+                                                value="{{allData.personalDetails.email}}" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="ps-3 boxSahdow border border-white border-opacity-50 rounded-4">
+                                            <span class="subTopics">Mobile Number</span>:- <br>
+                                            <input type="number" class="ms-2 form-control-plaintext width-95 text-light"
+                                                id="mobileNumber" value="{{allData.personalDetails.mobileNumber}}"
+                                                readonly>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mt-3 ps-3 pe-3 address">
+                                    <div class="ps-3 boxSahdow border border-white border-opacity-50 rounded-4">
+                                        <span class="subTopics">Address</span>:- <br>
+                                        <textarea class="ms-2 mt-2 dob" id="address" placeholder="Enter Address" name="address"
+                                            style="width: 100%;" readonly>{{allData.personalDetails.address}}</textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {% if user.is_staff %}
+                    {% else %}
+                    <div class="col-md-6 jobLocation">
+                        <div class="card shadow bodyStyle  profilePageCards rounded-4">
+
+                            <div class="card-body ">
+                                <div class="row border-bottom border-white">
+                                    <h5 class="card-title">Preferred Job Location</h5>
+                                </div>
+
+                                {% for i in allData.jobLocationSelected %}
+                                <div class="row mt-3 jobLocationDropDownDivs">
+                                    <div
+                                        class="ps-3 pt-1 pb-1 boxSahdow border border-white border-opacity-50 rounded-4 JobLocationControls">
+                                        <span class="subTopics">Location {{forloop.counter}}</span>:-
+                                        <select name="jobLocation{{forloop.counter}}" class=" ms-2 dropDown jobLocations dob border-0"
+                                            id="jobLocations{{forloop.counter}}" disabled>
+                                            <option value="Select">---Select---</option>
+                                            {% for j in allData.jobLocationAvailable %}
+                                            <option value="{{j}}">{{j}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+                <div class="row mt-2 profilePageRows rounded-4">
+
+
+                    <div class="col-md-6  Qualification">
+                        <div class="card shadow bodyStyle profilePageCards rounded-4">
+
+                            <div class="card-body">
+                                <div class="row border-bottom border-white">
+                                    <h5 class="card-title">Qualification</h5>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-5">
+                                        <span class="subTopics">Highest Qualification</span>:-&nbsp;|
+                                        <select name="highestQualification" class="dropDown dob border-0"
+                                            id="highestQualification" disabled>
+                                            <option value="---Select---">---Select---</option>
+                                            {% for i in allData.qualificationList %}
+                                            <option value="{{i}}">{{i}}</option>
+                                            {% endfor %}
+                                        </select>&nbsp;|
+
+                                        <span class="subTopics">University</span>:-&nbsp;|
+                                        <input type="text" id="university" name="university" value="{{allData.qualification.university}}"
+                                            class=" ms-2 inputBox dob border-0" style="width: 25%;" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-5">
+                                        <span class="subTopics">Year of passing</span>:-&nbsp;|
+                                        <select name="yearOfPassing" class="dropDown dob border-0" id="yearOfPassing"
+                                            disabled>
+                                            <option value="---Select---">---Select---</option>
+                                            {% for i in allData.yearList %}
+                                            <option value="{{i}}">{{i}}</option>
+                                            {% endfor %}
+                                        </select>&nbsp;|
+                                        <span class="ms-5 subTopics">Score</span>:-&nbsp;|
+                                        <input type="number" id="score" name="score" value="{{allData.qualification.score}}"
+                                            class=" ms-2 inputBox dob border-0" style="width: 25%;" readonly>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    {% if user.is_staff %}
+                    {% else %}
+                    <div class="col-md-6 WorkDetails">
+                        <div class="card shadow bodyStyle profilePageCards rounded-4">
+
+                            <div class="card-body">
+                                <div class="row border-bottom border-white">
+                                    <h5 class="card-title">Work Details</h5>
+                                </div>
+
+                                <div class="row mt-3 ">
+                                    <div class="col-3">
+                                        <span class="ms-3 subTopics">Are You Fresher</span>?
+                                    </div>
+                                    No
+                                    <div class="col-1">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="fresher" name="fresher">
+                                            <label class="form-check-label" for="fresher">Yes</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3 ms-3">
+                                        &nbsp;|&nbsp;&nbsp;&nbsp;
+                                        <span class="subTopics">Currently Working</span>?
+                                    </div>
+                                    No
+                                    <div class="col-1">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="working" name="working">
+                                            <label class="form-check-label" for="working">Yes</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mt-3">
+
+                                    <div class="col-6">
+                                        <span class="ms-3 subTopics">Company Name</span>:-
+                                        <input type="text" id="companyName" class="ms-2 inputBox dob border-0" name="companyName"
+                                            placeholder="Company Name" value="{{allData.workDetails.companyName}}"
+                                            style="width: 50%;" readonly>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <span class="ms-3 subTopics">Designation</span>:-
+                                        <input type="text" id="designation" class=" ms-2 inputBox dob border-0" name="designation"
+                                            placeholder="Company Name" value="{{allData.workDetails.designation}}"
+                                            readonly style="width: 50%;">
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+
+                                    <div class="col-6">
+
+                                        <span class="ms-3 subTopics">Start Date</span>:-
+                                        <input type="date" id="startDate" class="ms-5 dob" name="startDate"
+                                            value="{{allData.workDetails.startDate}}" readonly style="width: 50%;">
+                                    </div>
+
+                                    <div class="col-6">
+                                        <span class="ms-3 subTopics">End Date</span>:-
+                                        <input type="date" id="lastDate" class="ms-5 dob" name="lastDate"
+                                            value="{{allData.workDetails.lastDate}}" readonly style="width: 50%;">
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+                <div class="editSaveBtns">
+                    <div class="row">
+                        <button type="submit" value="Save" id="saveEdit"
+                            class="me-3 btn editButton border border-white border-opacity-50" onclick="save()"
+                            hidden>Save</button>
+                        <button value="Cancel" type="button" id="cancelEdit"
+                            class=" btn editButton border border-white border-opacity-50" onclick="changeToReadOnly()"
+                            hidden>Cancel</button>
+                        <button type="button" value="Edit" id="editBtn"
+                            class="btn editButton border border-white border-opacity-50" onclick="edit()"
+                            style="width: 100px;">Edit</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    </div>
+
+
+</body>
+
+</html>

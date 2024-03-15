@@ -1,0 +1,65 @@
+{% load static %}
+<div class="nav fixedSidebar">
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <div class="nav_list">
+        <div class="logo pb-3 pt-3 border-bottom border-white" style="text-align: center;">
+            <img src="{% static 'images/portalLogo.jpg' %}" alt="Logo" width="100%" height="50px">
+        </div>
+
+
+        <div class="ms-2 mt-4 navbarOptions border-bottom border-white">
+            <h6>Personal</h6>
+            <!-- <hr> -->
+            <ul class="list-unstyled ms-4">
+                <li>
+                    <a href="/profile/" class="disabledAnchorWithoutSelfDone">My Profile
+                </a></li>
+                <li>ID Card</li>
+                <li>My Certificates</li>
+            </ul>
+        </div>
+        <div class="ms-2 mt-2 navbarOptions border-bottom border-white">
+            <h6>Learning</h6>
+            <!-- <hr> -->
+            <ul class="list-unstyled ms-4">
+                <li> <a href="/dashboard/" class="disabledAnchorWithoutSelfDone">Dashboard</a></li>
+                <li>Assignments</li>
+                <li>Assessments</li>
+                <li>Interview Questions</li>
+            </ul>
+        </div>
+        <div class="ms-2 mt-2 navbarOptions border-bottom border-white">
+            <h6>Additional</h6>
+            <!-- <hr> -->
+            <ul class="list-unstyled ms-4">
+                <li>My Batch</li>
+                <li>Recommended Jobs </li>
+                <li>Calendar</li>
+                <li>Fees Details</li>
+                <li><a href="/logout/" class="disabledAnchorWithoutSelfDone">Logout</a></li>
+                <!-- <li>Add new User</li> -->
+            </ul>
+        </div>
+
+        {% if user.is_staff %}
+
+        {% else %}
+
+        <div class="fixed-bottom ps-2 pb-3" style="width: max-content;">
+            <div class="border border-black rounded p-2  bg-secondary p-2 text-dark">
+                <p style="text-align: center;">RELATIONSHIP MANAGER</p>
+                <hr>
+                <img src="{% static 'images/person.svg' %}" alt="logo" style="width: 40px;">
+                <b>Pooja Maruti Pingale</b>
+                <br>
+                <div class="bg-primary-subtle ms-2 mt-3 opacity-75 d-flex justify-content-center align-items-center iconDiv"
+                    style="width: max-content;">
+                    <i class="bi bi-telephone-fill me-5 ms-3 iconBorder"></i>
+                    <i class="bi bi-whatsapp ms-5 me-3 iconBorder"></i>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
