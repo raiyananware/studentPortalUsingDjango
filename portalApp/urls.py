@@ -19,6 +19,6 @@ urlpatterns = [
     path('deactivateUser/<id>/<isTeacher>',views.deactivateUsers),
     path('activateUser/<id>/<isTeacher>',views.activateUsers),
     path('removeUser/<id>/<isTeacher>',views.removeUser),
-    path('updateUser/<isTeacher>', views.updateUsers)
-    # path('createData',creatingCourseTopicAndSubTopic.uploadData)
+    path('updateUser/<isTeacher>', views.updateUsers),
+    path('createData',creatingCourseTopicAndSubTopic.uploadData)
 ]
