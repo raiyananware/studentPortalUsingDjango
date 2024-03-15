@@ -1,0 +1,10 @@
+.dob {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    outline: none;
+    color: white;
+  }
+
+  .dob:focus{
+    background-color: #474747;
+  }

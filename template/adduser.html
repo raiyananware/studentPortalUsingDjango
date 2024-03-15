@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'css/addUser.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New User</title>
+</head>
+
+<body class="completePage">
+    <div class="row">
+        <div class="col-md-2">
+            {% include 'sideNav/sideNavForAdmin.html' %}
+        </div>
+
+        <div class="col-md-10">
+
+
+
+
+
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card bodyStyle shadow-lg">
+                            <div class="card-header">
+                                <h2 class="text-center">Add New User</h2>
+                            </div>
+                            <div class="card-body">
+                                <form action="/addUser/" method="POST">
+                                    {% csrf_token %}
+
+                                    <div class="form-group mt-2">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName">
+                                    </div>
+
+                                    <div class="form-group mt-2">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName">
+                                    </div>
+
+                                    <div class="form-group mt-2">
+                                        <label for="mobileNumber">Mobile Number</label>
+                                        <input type="number" class="form-control" id="mobileNumber" name="mobileNumber">
+                                    </div>
+
+                                    <div class="form-group mt-2">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email">
+                                    </div>
+
+                                    <div class="form-group mt-2">
+                                        <label for="dob">Date of Birth</label>
+                                        <input type="date" class="form-control" id="dob" name="dob">
+                                    </div>
+
+                                    <div class="form-group mt-2">
+                                        <label for="password">Password</label>
+                                        <input type="text" class="form-control" id="password" name="password">
+                                    </div>
+
+                                    <div class="form-group mt-2">
+                                        <label for="gender">Batch</label>
+                                        <select class="form-control" id="batch" name="batch">
+                                            <option value="select">Select Batch</option>
+                                            {% for options in batchData %}
+                                            <option value="{{options.batchId}}">{{ options.batchName }}</option>
+                                            {% endfor %}
+                                            
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group mt-2">
+                                        <label for="gender">Gender</label>
+                                        <select class="form-control" id="gender" name="gender">
+                                            <option value="select">Select Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group mt-2">
+                                        <label for="role">Role</label>
+                                        <select class="form-control" id="role" name="role">
+                                            <option value="select">Select Role</option>
+                                            <option value="Student">Student</option>
+                                            <option value="Teacher">Teacher</option>
+                                            <option value="Admin">Coordinator</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="text-center mt-3">
+                                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>
