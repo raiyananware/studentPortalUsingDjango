@@ -69,7 +69,7 @@ python manage.py runserver
 ### Creation of the Databa
 After running the Project you need to add Data in the Data base for that you need to run the data creation query  
 Enter the Following Url in the browser
-http://127.0.0.1:port Number/createData  
+http://127.0.0.1:portNumber/createData  
 After Runnig this command please comment the line  
 path('createData',creatingCourseTopicAndSubTopic.uploadData)  
 in the urls.py file present in the portalApp folder
