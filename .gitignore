@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+__pycache__/
+
+# Caches
+*.cache
+*.log
+
+# Environment variables
+.env
+
+# Static files
+staticfiles/
+*.pyc
+
+# Database
+*.sqlite3
+
+# Secret key
+*.secret_key
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Virtual environment
+venv/
